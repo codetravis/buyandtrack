@@ -1,0 +1,10 @@
+<h1>Add Item</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'items:add_item' %}" method="post">
+{% csrf_token %}
+{% for field in {} %}
+    
+{% endfor %}
+</form>
