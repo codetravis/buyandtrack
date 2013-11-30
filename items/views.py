@@ -2,12 +2,14 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from items.models import Item, Location, ItemType
+from items.models import ItemForm, ItemTypeForm, LocationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 
 from items.analyze_items import LowestPriceItem
  
 def index(request):
+    
     context = {}
     # create list of last 7 purchased items
     purchased_items = Item.objects.order_by('-purchase_date')[:7]
@@ -31,5 +33,12 @@ def item_type_detail(request, item_type_id):
 def add_item(request):
     """
     Add new item to listing.
-    """    
-    return render(request, 'items/add_item.html', {})
+    """
+    if request.method == 'POST':
+        form = ItemForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/items/')
+    else:
+        form = ItemForm()    
+    return render(request, 'items/add_item.html', {'form': form})

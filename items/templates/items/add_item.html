@@ -4,7 +4,6 @@
 
 <form action="{% url 'items:add_item' %}" method="post">
 {% csrf_token %}
-{% for field in {} %}
-    
-{% endfor %}
+{{ form.as_p }}
+<input type="submit" value="Add Item" />
 </form>

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.forms import ModelForm
 
 
 class Location(models.Model):
@@ -26,4 +27,15 @@ class Item(models.Model):
         return self.name
     
 
+# Form classes for input
+class ItemForm(ModelForm):
+    class Meta:
+        model = Item
 
+class ItemTypeForm(ModelForm):
+    class Meta:
+        model = ItemType
+
+class LocationForm(ModelForm):
+    class Meta:
+        model = Location
