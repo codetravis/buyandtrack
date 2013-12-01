@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 <h1>{{ item_type.name }}</h1>
 
 {% if best_price_item.name != -1 %}
@@ -7,4 +11,4 @@
 {% else %}
     <h2>You have purchased NONE of this item</h2>
 {% endif %}
-
+{% endblock %}

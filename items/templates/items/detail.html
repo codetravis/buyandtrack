@@ -1,5 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
 <h2>{{ item.name }}</h2>
 <label>Item Type</label>
 <a href="{% url 'items:item_type_detail' item.item_type_id %}">{{ item.item_type }}</a>
 </br>
 <label>Quantity</label>{{ item.quantity }}</br>
+{% endblock %}

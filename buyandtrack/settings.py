@@ -1,11 +1,15 @@
 # Django settings for buyandtrack project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+SETTINGS_PATH = os.path.dirname(__file__)
+
 # template directory
 TEMPLATE_DIRS = (
     '/home/travis/projects/django_sites/buyandtrack/items/templates',
+    os.path.join(SETTINGS_PATH, 'templates'),
 )
 
 ADMINS = (
@@ -112,11 +116,6 @@ ROOT_URLCONF = 'buyandtrack.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'buyandtrack.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
 
 INSTALLED_APPS = (
     'django.contrib.auth',

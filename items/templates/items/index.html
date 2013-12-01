@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 {% if purchased_items %}
     <ul>
     {% for item in purchased_items %}
@@ -7,3 +11,5 @@
 {% else %}
     <p>No items have been purchased</p>
 {% endif %}
+
+{% endblock %}
