@@ -7,7 +7,15 @@
 
 <form action="{% url 'items:add_item' %}" method="post">
 {% csrf_token %}
-{{ form.as_p }}
+{% for field in form %}
+    <div class="field_wrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }} 
+        {% if field.label == 'Item type' %}
+            <a href="{% url 'items:add_item_type' %}">Add Item Type</a>
+        {% endif %} 
+    </div>
+{% endfor %}
 <input type="submit" value="Add Item" />
 </form>
 

@@ -42,3 +42,29 @@ def add_item(request):
     else:
         form = ItemForm()    
     return render(request, 'items/add_item.html', {'form': form})
+
+def add_item_type(request):
+    """
+    Add new item type to listing.
+    """
+    if request.method == 'POST':
+        form = ItemTypeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/items/')
+    else:
+        form = ItemTypeForm()
+    return render(request, 'items/add_item_type.html', {'form': form})
+
+def add_location(request):
+    """
+    Add new location to listing.
+    """
+    if request.method == 'POST':
+        form = LocationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/items/')
+    else:
+        form = LocationForm()
+    return render(request, 'items/add_location.html', {'form': form})
