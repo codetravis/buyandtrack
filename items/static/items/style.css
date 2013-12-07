@@ -1,20 +1,42 @@
 body
 {
     margin-left: 20px;
+    background-color: #F0F0F0;
 }
 
 /* menu style */
+
+.main_menu ul
+{
+    background-color: #004040;
+    padding:5px;
+}
 
 .main_menu ul li
 {
     list-style: none;
     display: inline;
     border: 1px solid;
+    border-color: #FFFFFF;
+    background-color:#005050;
     padding: 5px;
+}
+
+
+.main_menu ul li a
+{
+    color: #FFFFFF;
 }
 
 /* main body style */
 .body_wrapper
 {
+    padding: 5px;
+}
+
+/* index page item list style */
+#item_list ul li
+{
+    list-style: none;
     padding: 5px;
 }

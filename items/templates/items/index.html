@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<div id="item_list">
 {% if purchased_items %}
     <ul>
     {% for item in purchased_items %}
         <li><a href="{% url 'items:detail'  item.id %}">
-        {{ item.name }}:{{ item.item_type }}</a></li>
+        {{ item.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No items have been purchased</p>
 {% endif %}
-
+</div>
 {% endblock %}
