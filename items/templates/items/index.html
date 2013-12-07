@@ -5,7 +5,8 @@
 {% if purchased_items %}
     <ul>
     {% for item in purchased_items %}
-        <li><a href="{% url 'items:detail'  item.id %}">{{ item.name }}</a></li>
+        <li><a href="{% url 'items:detail'  item.id %}">
+        {{ item.name }}:{{ item.item_type }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

@@ -25,7 +25,7 @@ def detail(request, item_id):
 def item_type_detail(request, item_type_id):
     # get averages from last 10 
     item_type = get_object_or_404(ItemType, pk=item_type_id)
-    best_price_item = LowestPriceItem(item_type_id, 10)
+    best_price_item = LowestPriceItem(item_type_id, 3)
     
     return render(request, 'items/item_type_detail.html', 
         {'best_price_item': best_price_item, 'item_type': item_type})
