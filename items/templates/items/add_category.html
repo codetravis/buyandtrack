@@ -5,10 +5,10 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'items:add_item_type' %}" method="post">
+<form action="{% url 'items:add_category' %}" method="post">
 {% csrf_token %}
 {{ form.as_p }}
-<input type="submit" value="Add Item Type" />
+<input type="submit" value="Add Category" />
 </form>
 
 {% endblock %}

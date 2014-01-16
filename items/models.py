@@ -9,32 +9,47 @@ class Location(models.Model):
     def __unicode__(self):
         return self.name
 
-class ItemType(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=50)
 
     def __unicode__(self):
         return self.name
 
 class Item(models.Model):
+    month = models.IntegerField()
+    day = models.IntegerField()
+    year = models.IntegerField()
     name = models.CharField(max_length=50)
-    item_type = models.ForeignKey(ItemType)
+    category = models.ForeignKey(Category)
     quantity = models.IntegerField()
     price = models.DecimalField(decimal_places=2, max_digits=9)
-    purchase_date = models.DateField('purchase date')
     location = models.ForeignKey(Location)
 
     def __unicode__(self):
         return self.name
     
+# Quick and Dirty Totals through receipts
+class Receipt(models.Model):
+    month = models.IntegerField()
+    day = models.IntegerField()
+    year = models.IntegerField()
+    total = models.DecimalField(decimal_places=2, max_digits=9)
+
+    def __unicode__(self):
+        return "%d/%d/%d -- %s" % (self.month, self.day, self.year, str(self.total))
+
+class ReceiptForm(ModelForm):
+    class Meta:
+        model = Receipt
 
 # Form classes for input
 class ItemForm(ModelForm):
     class Meta:
         model = Item
 
-class ItemTypeForm(ModelForm):
+class CategoryForm(ModelForm):
     class Meta:
-        model = ItemType
+        model = Category
 
 class LocationForm(ModelForm):
     class Meta:

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content%}
+<h1>Add Receipt</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'items:add_receipt' %}" method="post">
+{% csrf_token %}
+{% for field in form %}
+    <div class="field_wrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }} 
+    </div>
+{% endfor %}
+<input type="submit" value="Add Receipt" />
+</form>
+
+{% endblock %}
